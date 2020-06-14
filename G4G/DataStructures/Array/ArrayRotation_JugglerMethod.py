@@ -22,17 +22,18 @@ def printArray(arr, size):
 
 
 def rotateLeft(arr, d, n):
-    d = gcd(d, n)
-    for i in range(d):
+    g_c_d = gcd(d, n)
+    for i in range(g_c_d):
         temp = arr[i]
         j = i
         while 1:
-            k = j+d
-            if k < n:
-                arr[j] = arr[k]
-                j = k
-            else:
+            k = j + d
+            if k >= n:
+                k = k - n
+            if k == i:
                 break
+            arr[j] = arr[k]
+            j = k
         arr[j] = temp
 
 
